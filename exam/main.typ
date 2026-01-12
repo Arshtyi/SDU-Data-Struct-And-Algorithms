@@ -1,5 +1,5 @@
 #import "@preview/ezexam:0.2.7": *
-#import "@preview/cetz:0.4.2": canvas, draw, tree
+// #import "@preview/cetz:0.4.2": canvas, draw, tree
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 
 #set document(
@@ -90,18 +90,25 @@
 ]
 #question[
     一棵$3$阶$B$-树如下,画出经过下列操作后的$B$-树:
-    #canvas({
-        import draw: *
+    // #canvas({
+    //     import draw: *
 
-        set-style(content: (padding: 0.5em))
-        tree.tree(
-            (
-                [$60$],
-                ([$20$], [$3 space.en 10$], [$35 space.en 40$]),
-                ([$80$], [$70$], [$100$]),
-            ),
-        )
-    })
+    //     set-style(content: (padding: 0.5em))
+    //     tree.tree(
+    //         (
+    //             [$60$],
+    //             ([$20$], [$3 space.en 10$], [$35 space.en 40$]),
+    //             ([$80$], [$70$], [$100$]),
+    //         ),
+    //     )
+    // })
+    #diagram(
+        $
+                   &                        & 60edge("ld")edge("rd") \
+                   & 20edge("ld")edge("rd") &                        & 80edge("d")edge("rd") \
+            3 , 10 &                        &                35 , 40 & 70                    & 100
+        $,
+    )
     + 插入$72$
     + 插入$70$
     + 删除$70$
@@ -112,52 +119,66 @@
     + 非连通无向图$G$有$21$条边,则至少有多少个节点?
 ]
 #question[
-    给出图如下
-    #let data = (
-        [$6$],
-        ([$4$], [$1$], ([$2$], [$3$])),
-        [$5$],
+    // 给出图如下
+    // #let data = (
+    //     [$6$],
+    //     ([$4$], [$1$], ([$2$], [$3$])),
+    //     [$5$],
+    // )
+    // #canvas({
+    //     import draw: *
+
+    //     set-style(content: (padding: .2), fill: gray.lighten(70%), stroke: gray.lighten(70%))
+
+    //     tree.tree(
+    //         data,
+    //         spread: 2.5,
+    //         grow: 1.5,
+    //         draw-node: (node, ..) => {
+    //             circle((), radius: .45, stroke: none)
+    //             content((), node.content)
+    //         },
+    //         draw-edge: (from, to, ..) => {
+    //             line((a: from, number: .6, b: to), (a: to, number: .6, b: from), mark: (end: ">"))
+    //         },
+    //         name: "tree",
+    //     )
+    //     let (a, b) = ("tree.0-0", "tree.0-1")
+    //     line((a, .6, b), (b, .6, a), mark: (end: ">"))
+    //     let (a, b) = ("tree.0-0-0", "tree.0-0-1")
+    //     line((a, .6, b), (b, .6, a), mark: (end: ">"))
+    //     let (a, b) = ("tree.0-0-1", "tree.0-1")
+    //     line((a, .6, b), (b, .6, a), mark: (end: ">"))
+    //     let (a, b) = ("tree.0-0-1-0", "tree.0-1")
+    //     line((a, .6, b), (b, .6, a), mark: (end: ">"))
+    // })
+    #diagram(
+        $
+                           &                                                 & 6edge("ld", "-|>")edge("d", "-|>") \
+                           & 4edge("ld", "-|>")edge("d", "-|>")edge(, "-|>") & 5edge("ld", "<|-")edge("d", "<|-") \
+            1edge(, "-|>") & 2edge(, "-|>")                                  &                                  3
+        $,
     )
-    #canvas({
-        import draw: *
 
-        set-style(content: (padding: .2), fill: gray.lighten(70%), stroke: gray.lighten(70%))
-
-        tree.tree(
-            data,
-            spread: 2.5,
-            grow: 1.5,
-            draw-node: (node, ..) => {
-                circle((), radius: .45, stroke: none)
-                content((), node.content)
-            },
-            draw-edge: (from, to, ..) => {
-                line((a: from, number: .6, b: to), (a: to, number: .6, b: from), mark: (end: ">"))
-            },
-            name: "tree",
-        )
-        let (a, b) = ("tree.0-0", "tree.0-1")
-        line((a, .6, b), (b, .6, a), mark: (end: ">"))
-        let (a, b) = ("tree.0-0-0", "tree.0-0-1")
-        line((a, .6, b), (b, .6, a), mark: (end: ">"))
-        let (a, b) = ("tree.0-0-1", "tree.0-1")
-        line((a, .6, b), (b, .6, a), mark: (end: ">"))
-        let (a, b) = ("tree.0-0-1-0", "tree.0-1")
-        line((a, .6, b), (b, .6, a), mark: (end: ">"))
-    })
     + 写出该图的邻接链表(升序).
     + 若从$6$开始的DFS和BFS遍历序列均为$6,4,5,1,2,3$,求二者的生成树.
     + 所有拓扑排序序列
 ]
 #question[
-    给出图如下
+    // 给出图如下
 
+    // #diagram(
+    //     $
+    //                               & 1 edge("ld", 1) edge("d", 3) edge("rd", 6) \
+    //         2 edge("d", 5)edge(4) & 3 edge("ld", 4) edge("rd", 3)              & 4 edge("d", 5, #left) \
+    //                     5 edge(2) & 7 edge(7)                                  &                     6 \
+    //     $,
+    // )
     #diagram(
         $
-                                  & 1 edge("ld", 1) edge("d", 3) edge("rd", 6) \
-            2 edge("d", 5)edge(4) & 3 edge("ld", 4) edge("rd", 3)              & 4 edge("d", 5, #left) \
-                  5 edge("rd", 2) &                                            &        6edge("ld", 7) \
-                                  & 7
+                                  & 1 edge("ld", 1) edge("d", 3) edge(6) &  4edge("d", 5) \
+            2 edge("d", 5)edge(4) & 3 edge("ld", 4) edge(3)              & 6edge("ld", 7) \
+                        5 edge(2) & 7 \
         $,
     )
     + 从节点$1$出发,列表Prim算法过程(选择边的顺序,连接的两边,边权).
@@ -171,7 +192,7 @@
     struct Node{
         int val;
         Node *left, *right;
-    }
+    };
     ```
     现有一棵二叉树,设计算法求解:是否存在一条从根节点到叶节点的路径,使得路径上节点值之和等于给定值sum.
     + 设计算法并说明主要思路.
