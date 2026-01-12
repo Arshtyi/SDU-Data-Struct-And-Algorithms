@@ -22,7 +22,7 @@
 ]
 
 #notice(
-    [出于方便使用#link("https://github.com/gbchu/ezexam", "gbcnu/ezexam:0.2.7")作模板.],
+    [出于方便使用#link("https://github.com/gbchu/ezexam", "gbchu/ezexam:0.2.7")作模板.],
     [源码:#link("https://github.com/Arshtyi/SDU-Data-Struct-And-Algorithms").],
 )
 
