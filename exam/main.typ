@@ -33,7 +33,7 @@
 #question[
     现在欲将序列$11,20,33,43,86,99,107$升序排列.
     + 若使用及时终止的选择排序,使用什么样的初始序列能使得排序所需比较次数最少?给出这种情况和所需比较次数.
-    + 若对(1)中初始序列使用快速排序,时间复杂度是多少?
+    + 若对(1)中初始序列使用快速排序,始终取第一个元素为pivot,时间复杂度是多少?
 ]
 #question[
     使用$0$base的size为$10$的数组实现循环队列,front指向队头元素,rear指向队尾元素的下一个位置.某个时刻,$"front"=7,"rear"=3$.
@@ -50,7 +50,7 @@
     补全代码将一个带有头结点的单链表原地逆置
     ```cpp
     void reverseList(Node* head){
-        Node *pre = nullptr,cur = head->next, *nxt = nullptr;
+        Node *pre = nullptr,*cur = head->next, *nxt = nullptr;
         while(cur!= nullptr){
             1;
             2;
@@ -144,7 +144,7 @@
         let (a, b) = ("tree.0-0-1-0", "tree.0-1")
         line((a, .6, b), (b, .6, a), mark: (end: ">"))
     })
-    + 写出该图的邻接矩阵(升序).
+    + 写出该图的邻接链表(升序).
     + 若从$6$开始的DFS和BFS遍历序列均为$6,4,5,1,2,3$,求二者的生成树.
     + 所有拓扑排序序列
 ]
