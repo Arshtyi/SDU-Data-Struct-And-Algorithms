@@ -3,7 +3,7 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 
 #set document(
-    title: "山东大学计算机科学与技术学院24数据、智能班数据结构期末",
+    title: "山东大学计算机科学与技术学院24数据结构期末",
     author: "Arshtyi",
     date: datetime.today(),
 )
@@ -18,9 +18,7 @@
 }
 
 #title[
-    山东大学计算机科学与技术学院
-
-    24数据、智能班数据结构与算法期末试题
+    山东大学计算机科学与技术学院24数据结构与算法期末试题
 ]
 
 #notice(
